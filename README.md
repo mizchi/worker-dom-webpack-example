@@ -1,41 +1,21 @@
-# worker-dom as package with webpack
+# worker-dom-webpack-example
 
-## Webpack settings
+This is sample project for `@ampproject/worker-dom`'s PR (https://github.com/ampproject/worker-dom/pull/855)
 
-- Add `@ampproject/worker-dom`
-- Add `worker-plugin` or `worker-loader` to create worker on webpack
+[demo](https://wizardly-benz-02c23e.netlify.app/)
 
-In this README, we use `worker-plugin`.
+## Dev
 
-```js
-// webpack.config.js
-const WorkerPlugin = require("worker-plugin");
-module.exports = {
-  // ...
-  plugins: [new WorkerPlugin()]
-}
+```bash
+yarn webpack-dev-server # Open localhost:8080
 ```
 
-## Example
+## Build
 
-```js
-// worker.js
-import { ready } from "@ampproject/worker-dom/dist/lib/worker";
-
-ready.then(() =>{ 
-  document.body.firstChild.textContent = 'hello from worker mutate';
-});
+```bash
+yarn webpack --mode production
 ```
 
-```js
-// main.js
-import { attachWorker } from "@ampproject/worker-dom/dist/lib/main";
+## LICENSE
 
-// Create worker by your own way
-// This code uses worker-plugin
-const worker = new Worker("./worker.js", { type: "module" });
-
-// attach worker to dom
-attachWorker(document.querySelector('#root'), worker);
-```
-
+MIT
