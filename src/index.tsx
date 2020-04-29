@@ -9,6 +9,6 @@ el.innerHTML = `
 `;
 document.body.appendChild(el);
 
-const worker = new Worker("./worker.js", { type: "module" });
+const worker = new Worker("./worker.tsx", { type: "module" });
 
 attachWorker(el, worker);
