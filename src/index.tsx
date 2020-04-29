@@ -1,14 +1,14 @@
 import { attachWorker } from "@mizchi/worker-dom/dist/lib/main.mjs";
 
+// app1
 const el = document.createElement("main");
-el.innerHTML = `
-<div>
-  <h1>main</h1>
-  <button>click</button>
-</div>
-`;
 document.body.appendChild(el);
-
-const worker = new Worker("./worker.tsx", { type: "module" });
-
+const worker = new Worker("./worker1.tsx", { type: "module" });
 attachWorker(el, worker);
+
+// app2
+const el2 = document.createElement("div");
+document.body.appendChild(el2);
+const worker2 = new Worker("./worker2.tsx", { type: "module" });
+
+attachWorker(el2, worker2);

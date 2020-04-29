@@ -13,6 +13,7 @@
     "worker-plugin": "^4.0.2"
   },
   "dependencies": {
-    "@mizchi/worker-dom": "^0.24.0"
+    "@mizchi/worker-dom": "^0.24.0",
+    "preact": "^10.4.1"
   }
 }

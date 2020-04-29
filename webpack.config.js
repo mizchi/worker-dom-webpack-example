@@ -7,11 +7,21 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".mjs", ".json"],
   },
+  output: {
+    chunkFilename: "[contenthash].js",
+  },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: [{ loader: "ts-loader", options: { transpileOnly: true } }],
+        use: [
+          {
+            loader: "ts-loader",
+            options: {
+              transpileOnly: true,
+            },
+          },
+        ],
       },
     ],
   },
